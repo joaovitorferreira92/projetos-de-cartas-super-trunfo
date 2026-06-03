@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    
+
+  
     // carta 1
     char estado1[20];
     char codigo1[4]; // a01 = 3 chars +\0
@@ -110,7 +111,6 @@ int main(){
      // calculo do super podr da carta 2
      superpoder2 = populacao2 + area2 + pib2 + pib_per_capita2 + (1 / densidade_populacional2) + pontosturisticos2;
 
-
      // saida de dados organizada
      printf("\n=== carta 1 ===\n");
      printf("Digite o Estado: %s\n", estado1);
@@ -137,15 +137,64 @@ int main(){
      printf("super poder: %.2f\n", superpoder2);
 
      // comparacao do super poder das cartas
-      printf("\n=== comparacao do super poder das crtas ===\n");
-      
-      if(superpoder1 > superpoder2) {
-        printf("carta1 venceu no super poder!\n");
-      } else if (superpoder2 > superpoder1){
-        printf("carta2 venceu no super poder!\n");
-      }else{
-        printf("empate no super poder!\n");
-      
-        return 0;
+      int opcao;
+       do { 
+        printf("\n=== menu super trunfo ===\n");
+        printf("1 - comparar populacao\n");
+        printf("2 - comparacao area\n");
+        printf("3 - comparacao pib\n");
+        printf("4 - comparar superpoder\n");
+        printf("0 - sair\n");
+        printf("escolha uma opcao:");
+        scanf("%d", &opcao);
 
-       } }
+        switch (opcao){
+         case 1:
+         if (populacao1 > populacao2){
+            printf("carta 1 venceu na populacao1!\n");
+         } else if (populacao2 > populacao1){
+            printf("carta 2 venceu na populacao!\n");
+          }else{
+            printf("enpate na populacao!\n");
+          }
+         break;
+            case 2:
+         if (area1 > area2){
+            printf("carta 1 venceu na area!\n");
+         } else if (area2 > area1){
+            printf("carta 2 venceu na area!\n");
+         }else{
+            printf("empate na area!\n");
+         }
+         
+       break;
+           case 3:
+          if (pib1 > pib2){
+            printf("carta 1 venceu no pib!\n");
+          } else if (pib2 > pib1){
+            printf("carta 2 venceu no pib!\n");
+          }else{
+            printf("empate no pib!\n");
+          }
+       break;
+           case 4:
+           if (superpoder1 > superpoder2){
+              printf("carta1 venceu no super poder!\n");
+           }else if(superpoder2 > superpoder1){
+             printf("carta2 venceu no super poder\n");
+           }else{
+            printf("empate no super poder!\n");
+           }
+       break;
+           case 0:
+           printf("saindo...\n");
+       break;    
+          default:
+          printf("opcao invalida!\n");
+         }
+
+          } while (opcao!=0);
+   
+        return 0;
+         }
+      
